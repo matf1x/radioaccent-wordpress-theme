@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+.errorHeader {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem auto;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        color: var(--clr-neutral-300);
+        font-size: var(--fs-900);
+        font-weight: 900;
+        margin: 0 0 -3.5rem 0;
+    }
+
+    h3 {
+        padding: 0;
+        margin: 0;
+        font-size: var(--fs-700);
+        color: var(--clr-neutral-700);
+    }
+}
+
+.errorMessage {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.video {
+    max-width: 825px;
+    margin: 5rem auto;
+    overflow: hidden;
+    @include accentBorder();
+
+    iframe {
+        @include accentBorder();
+        width: 100%;
+        height: 435px;
+    }
+}

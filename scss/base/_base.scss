@@ -1,0 +1,12 @@
+@use "../abstracts" as *;
+
+body {
+    background: var(--clr-neutral-200);
+    font-family: var(--ff-secondary);
+}
+
+.only--mobile {
+    @include mq("medium") {
+        display: none;
+    }
+}

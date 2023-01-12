@@ -1,0 +1,48 @@
+@use '../abstracts' as *;
+
+.listenBtn {
+    a {
+        display: block;
+        background-color: var(--clr-secondary-400);
+        color: var(--clr-neutral-900);
+        font-weight: 600;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        transition: background-color .5s ease-in-out;
+        -webkit-transition: background-color .3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken(rgb(252, 221, 9), 5);
+        }
+
+        @include mq("large") {
+            @include accentBorder();
+            width: 200px;
+            height: auto;
+        }
+
+        i {
+            line-height: 30px;
+            font-size: var(--fs-200);
+
+            @include mq("large") {
+                line-height: 30px;
+                margin-right: 1rem;
+                font-size: var(--fs-200);
+            }
+        }
+
+        span{
+            display: none;
+            line-height: 30px;
+            font-size: var(--fs-200);
+
+            @include mq("large") {
+                display: inline-block;
+            }
+        }
+    }
+}

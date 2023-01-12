@@ -1,0 +1,101 @@
+@use '../abstracts' as *;
+
+.shows {
+    padding: var(--spacer) 0;
+    background: var(--clr-neutral-100);
+
+    .container {
+        padding: 0;
+
+        h2 {
+            font-weight: 600;
+            font-size: var(--fs-500);
+            line-height: var(--fs-500);
+            color: var(--clr-primary-500);
+            margin: 2rem 0 0;
+
+            @include mq("large") {
+                font-size: var(--fs-600);
+                line-height: var(--fs-600);
+            }
+        }
+
+        h3 {
+            font-weight: 400;
+            font-size: var(--fs-200);
+            line-height: var(--fs-300);
+            color: var(--clr-neutral-900);
+            margin: 0 0 2rem 0;
+        }
+    }
+    
+    &__holder {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 50% auto;
+    }
+}
+
+.top15 {
+    &__songs {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .songItem {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+            .number {
+                width: 15px;
+                font-size: var(--fs-500);
+                font-weight: 700;
+            }
+
+            .cover {
+                img {
+                    width: 85px;
+                    height: 85px;
+                    @include accentBorder();
+                }
+            }
+
+            .songInfo {
+                flex: 1;
+            }
+
+            .order {
+                text-align: center;
+                width: 50px;
+                background: var(--clr-neutral-200);
+                @include accentBorder();
+
+                .place {
+                    padding: .5rem;
+                }
+            }
+        }
+    }
+}
+
+.background {
+    border-top-right-radius: 10px;
+
+    &-up {
+        border-top-right-radius: 10px;
+        background: green;
+        color: var(--clr-neutral-100);
+    }
+}
+
+.text {
+    font-weight: 700;
+    &-up {
+        color: green;
+    }
+}
