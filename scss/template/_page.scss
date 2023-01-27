@@ -1,0 +1,66 @@
+@use '../abstracts' as *;
+
+.pageHeader {
+    background: var(--clr-neutral-900);
+    padding: 0;
+    margin: 0;
+    max-height: 325px;
+    overflow: hidden;
+
+    &__content {
+        display: grid;
+        grid-template-areas: 'stack';
+        place-items: end;
+
+        & > * {
+            grid-area: stack;
+        }
+
+        img {
+            width: 100%;
+            max-height: 325px;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .pageTitle {
+            width: 100%;
+            background: rgb(0,0,0);
+            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+            padding: 7rem 0 2rem;
+            z-index: 10;
+
+            .container {
+                h2 {
+                    position: relative;
+                    margin: 0;
+                    padding: 0;
+                    font-size: var(--fs-600);
+                    color: var(--clr-neutral-100);
+                    text-align: left;
+                    font-weight: 800;
+                    text-transform: uppercase;
+
+                    &::before {
+                        position: absolute;
+                        top: 0;
+                        left: -24px;
+                        content: '';
+                        width: 4px;
+                        height: 100%;
+                        background: var(--clr-primary-400);
+                        background: linear-gradient(45deg, rgba(8, 115, 185, 255) 0%, rgba(6, 85, 137, 255) 100%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pageContent {
+    padding: 1rem 0;
+
+    @include mq('medium') {
+        padding: 1.5rem 0;
+    }
+}

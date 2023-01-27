@@ -20,5 +20,5 @@ get_header();
         <iframe src="https://www.youtube-nocookie.com/embed/lExW80sXsHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
 
-<?php get_template_part( 'parts/lastsongs', 'top' ); ?>
+    <?php get_template_part( 'parts/songHistory', 'top' ); ?>
 <?php get_footer(); ?>

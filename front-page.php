@@ -32,7 +32,7 @@ get_header(); ?>
 
 <section id="head-news" class="latest-posts container">
 
-    <h2>Laatste regionieuws</h2>
+    <h2 class='sectionTitle'>Laatste regionieuws</h2>
 
     <div class="latest-posts__wrapper">
         <?php

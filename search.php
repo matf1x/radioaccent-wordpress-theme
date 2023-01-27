@@ -6,11 +6,21 @@
 get_header();
 ?>
 
-<section id="head-news" class="latest-posts container">
-    <h2>Resultaten voor: <?php echo get_search_query(); ?></h2>
+<section class='pageHeader'>
+        <div class="pageHeader__content">
+            <img src="https://img.nieuwsblad.be/Nc8rcLz4XHeLqzf5LXrmqg6Uhq0=/960x640/smart/https%3A%2F%2Fstatic.nieuwsblad.be%2FAssets%2FImages_Upload%2F2018%2F07%2F10%2FRadio_Accent.jpg" alt="Radio Accent">
+            <div class="pageTitle">
+                <div class="container">
+                    <h2>Resultaten voor: <?php echo get_search_query(); ?></h2>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="latest-posts__wrapper">
-        <?php
+    <section class="container latest-posts pageContent">
+
+        <div class="latest-posts__wrapper">
+            <?php
             if ( have_posts() ) :
                 /* Start the Loop */
                 while ( have_posts() ) : the_post();
@@ -43,6 +53,7 @@ get_header();
             ?>
         </div>
 
-</section>
-<?php get_template_part( 'parts/lastsongs', 'top' ); ?>
+    </section>
+
+<?php get_template_part( 'parts/songHistory', 'top' ); ?>
 <?php get_footer(); ?>

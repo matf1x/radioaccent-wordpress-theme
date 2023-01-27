@@ -1,123 +1,88 @@
 @use '../abstracts' as *;
 // Last songs
 .lastSongs {
-    padding: 0;
-    background: var(--clr-neutral-300);
-    padding: 1rem;
+    background: rgb(230, 230, 230);
+    padding: 2rem 0;
 
-    @include mq("large") {
-        padding: 2rem;
+    @include mq("medium") {
+        padding: 4rem 0;
     }
 
     h2 {
         grid-column: 1 / -1;
-        color: var(--clr-primary-500);
-        font-weight: 600;
-        font-size: var(--fs-500);
-        line-height: var(--fs-500);
-        margin: 2rem 0;
-
-        @include mq("large") {
-            font-size: var(--fs-600);
-            line-height: var(--fs-600);
-            margin: 2rem 0;
-        }
     }
 
     &--container {
+        --spacer: 2rem;
         width: 100%;
         padding: 0;
         display: grid;
         grid-template-columns: 1fr;
         gap: var(--spacer);
-        margin-bottom: 1rem;
 
         @include mq("medium") {
             grid-template-columns: repeat(2, 1fr);
-            margin-bottom: 2rem;
         }
 
         @include mq("large") {
-            grid-template-columns: repeat(5, 1fr);
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(4, 1fr);
         }
 
         .songItem {
-            position: relative;
-            flex-grow: 1;
-            position: black;
-            height: 200px;
-            overflow: hidden;
+            display: grid;
+            grid-template-areas: 'stack';
+            place-items: end;
+            max-height: 250px;
             @include accentBorder();
+            overflow: hidden;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px;
+            transition: box-shadow 500ms;
 
-            &--image {
-                position: absolute;
-                top: 0;
-                left: 0;
+            &:hover {
+                box-shadow: rgba(0, 0, 0, 0.6) 0px 2px 8px;
+            }
+
+            & > * {
+                grid-area: stack;
+            }
+
+            & > img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
                 z-index: 1;
             }
 
-            .songInfo {
-                position: relative;
-                display: flex;
-                height: 100%;
+            &__info {
                 width: 100%;
-                padding: 1rem;
-                background: linear-gradient(180deg, rgba(2,0,36,0) 30%, rgba(0,0,0,0.8) 100%);
-                align-items: flex-end;
-                z-index: 3;
-                color: var(--clr-neutral-100);
+                background: rgb(0,0,0);
+                background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+                z-index: 10;
+                padding: 4rem 1rem 1rem;
 
-                .noa {
-                    background: red;
+                h4, h5 {
+                    margin: 0;
+                    padding: 0;
+                    color: var(--clr-neutral-100);
+                    line-height: var(--fs-400);
                 }
 
-                &--timestamp {
-                    position: absolute;
-                    top: 1rem;
-                    left: 1rem;
-                    font-weight: 600;
-                    padding: .2rem .6rem;
-                    display: inline-block;
-                    background: var(--clr-primary-400);
+                h4 {
+                    font-family: var(--ff-primary);
+                    font-size: var(--fs-300);
+                }
+
+                h5 {
+                    font-weight: 400;
                     font-size: var(--fs-100);
-                    line-height: var(--fs-100);
-                    @include accentBorder();
-                }
-
-                div {
-
-
-                    h4 {
-                        padding: 0;
-                        margin: 0;
-                        font-weight: 600;
-                        font-size: var(--fs-400);
-                        line-height: var(--fs-400);
-                        text-shadow: 0 1px 1px #000;
-                    }
-
-                    h5 {
-                        padding: 0;
-                        margin: 0;
-                        font-weight: 600;
-                        font-weight: 400;
-                        font-size: var(--fs-100);
-                        line-height: var(--fs-300);
-                        text-shadow: 0 1px 1px #000;
-                    }
                 }
             }
         }
     }
 
     &--getMore {
-        padding: 0;
+        padding: 2rem 0 0;
         text-align: right;
-        margin-bottom: 2rem;
 
         a {
             display: inline-block;
@@ -150,12 +115,10 @@
 
         @include mq("medium") {
             grid-template-columns: repeat(2, 1fr);
-            margin-bottom: 4rem;
         }
 
         @include mq("large") {
             grid-template-columns: repeat(5, 1fr);
-            margin-bottom: 4rem;
         }
     }
 }
