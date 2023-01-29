@@ -28,7 +28,7 @@
             background: rgb(0,0,0);
             background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
             padding: 7rem 0 2rem;
-            z-index: 10;
+            z-index: 2;
 
             .container {
                 h2 {
@@ -54,13 +54,5 @@
                 }
             }
         }
-    }
-}
-
-.pageContent {
-    padding: 1rem 0;
-
-    @include mq('medium') {
-        padding: 1.5rem 0;
     }
 }

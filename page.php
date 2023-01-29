@@ -17,7 +17,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
         </div>
     </section>
 
-    <section class="container pageContent">
+    <section class="container pageContent withPadding">
         <?php the_content(); ?>
         <?php get_template_part( 'parts/share', 'top' ); ?>
     </section>

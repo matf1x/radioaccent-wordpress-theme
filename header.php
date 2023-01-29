@@ -13,6 +13,15 @@
 	<?php endif; ?>
 	<?php if ( has_post_thumbnail() && !is_home() ): ?>
 	<meta property="og:image" content="<?= the_post_thumbnail_url() ?>">
+    
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#0873b9">
+
     <?php endif; ?>
 
     <!-- Title of page -->

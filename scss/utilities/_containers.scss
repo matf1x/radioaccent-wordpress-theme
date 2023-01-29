@@ -1,0 +1,39 @@
+@use '../abstracts' as *;
+
+/** Default container **/
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+
+    @include mq('medium') {
+        padding: 0;
+    }
+}
+
+.withPadding {
+    padding: 1rem 0;
+}
+
+.pageContent {
+    padding: 3rem 0;
+}
+
+.newsPosts {
+    margin: var(--spacer) auto;
+
+    &__holder {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+
+        @include mq('medium') {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+    }
+
+}

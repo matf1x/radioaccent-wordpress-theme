@@ -21,9 +21,9 @@ $category     = $current_page->slug;
         </div>
     </section>
 
-    <section class="container latest-posts pageContent">
+    <section class="container newsPosts withPadding">
 
-        <div class="latest-posts__wrapper">
+        <div class="newsPosts__holder">
             <?php
             // Check if page is paged
             $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
@@ -43,14 +43,15 @@ $category     = $current_page->slug;
             if ($query->have_posts()) :
                 while ($query->have_posts()) : $query->the_post();
                 ?>
-            <a class="newsItem" id="post-<?php the_ID(); ?>" href="<?php echo esc_url( get_permalink( get_page_by_title(get_the_ID()))); ?>">
-                <?php the_post_thumbnail('large'); ?>
-                <div class="newsItem--category cat-<?php $cats = get_the_category(); print(strtolower(str_replace(' ', '-',$cats[0]->name))); ?>"><?php $cats = get_the_category(); print($cats[0]->name); ?></div>
-                <div class="newsItem--content">
-                    <h3 class="title"><?php print(get_the_title()) ?></h3>
-                    <p class="excerpt"><?php print(get_the_excerpt()) ?></p>
-                </div>
-            </a>
+                    <a href="<?php echo esc_url( get_permalink( get_page_by_title(get_the_ID()))); ?>" data-post-id='<?php the_ID(); ?>' data-type='preview-article'>
+                
+                        <img src="<?= get_the_post_thumbnail_url(get_the_ID(),'medium') ?>" alt="<?php print(get_the_title()) ?>" loading="lazy">
+
+                        <h5><?php $cats = get_the_category(); print($cats[0]->name); ?></h5>
+                        <h3><?php print(get_the_title()) ?></h3>
+                        <p><?php print(get_the_excerpt()) ?></p>
+
+                    </a>
                 <?php
                 endwhile;
             endif;
