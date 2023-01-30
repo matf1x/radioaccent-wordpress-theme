@@ -12,13 +12,14 @@
         color: var(--clr-neutral-100);
         font-weight: 500;
         text-decoration: none;
-        padding: 1rem 0;
+        padding: .25rem 0;
         gap: var(--spacer);
         text-align: center;
 
         @include mq("medium") {
             flex-direction: row;
             text-align: left;
+            padding: 1rem 0;
         }
 
         div {
