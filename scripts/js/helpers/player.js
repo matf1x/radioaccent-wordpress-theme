@@ -38,13 +38,13 @@ function loadCurrentSong() {
             const songApi = JSON.parse(xhttp.responseText);
 
             // Check if newer song is loaded
-            if(config.player.data.startTime !== songApi.startTime) {
+            if(config.player.data.startTime !== songApi[0].start) {
 
                 // Set the information to the holders
                 config.player.data.artist = songApi[0].artist;
                 config.player.data.title = songApi[0].title;
                 config.player.data.cover = songApi[0].cover;
-                config.player.data.startTime = songApi[0].startTime;
+                config.player.data.startTime = songApi[0].start;
 
                 // Insert the artist information in the elements
                 config.player.elements.artist.forEach((item) => {

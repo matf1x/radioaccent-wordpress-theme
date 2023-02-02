@@ -5,9 +5,20 @@ import { config } from './config.js';
  * Setup the layout handlers
  */
 export function layoutInit() {
+    listenForMenuButton();
     listenForScrolling();
     listenForSearch();
     listenForShare();
+}
+
+/**
+ * Listen for a menu action
+ */
+function listenForMenuButton() {
+    config.layout.buttons.menu.addEventListener('click', function() {
+        config.site.menuOpen = (!config.site.menuOpen) ? true : false;
+        config.layout.navigation.container.classList.toggle('navigation--open');
+    });
 }
 
 /**
