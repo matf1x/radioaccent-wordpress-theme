@@ -2,7 +2,7 @@
 
     <span class="closeButton" data-action="close-modal">X</span>
 
-    <section id="entry" class="entry">
+    <section data-screen="entry" class="entry">
         <h2>Stuur een bericht</h2>
         <p>Wil jij iets kwijt aan onze presentatoren? Vul onderstaand formulier in en stuur jouw bericht.</p>
 
@@ -41,7 +41,7 @@
         </form>
     </section>
 
-    <section id="complete" class="complete">
+    <section data-screen="complete" class="complete">
         
         <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
 

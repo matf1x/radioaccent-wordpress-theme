@@ -50,30 +50,32 @@ export function messageInit() {
         // Prevent the page from reloading
         e.preventDefault();
 
-        // Check the form
-        if(!checkForm()) return showError(config.modal.error, 'Er is een verplicht veld niet (goed) ingevuld.');
-
-        // After all this validation, send to the API
-        if(!sendMessage()) return showError(config.modal.error, 'Er trad een onverwachte fout op. Probeer later opnieuw');
-
-        // Message is send, show it to the user
-        config.modal.screens.entry.display = 'none';
-        config.modal.screens.complete.display = 'block';
-
-        // After 5 seconds, close the modal
-        setTimeout(() => {
-            // Close the modal
-            config.modal.component.close();
-
-            // Reset the form
-            config.modal.form.reset();
-
-            // Reset the modals
-            config.modal.screens.entry.style.display = 'block';
-            config.modal.screens.complete.style.display = 'none';
-        }, 5000);
+        validateAndSubmit();
     });
 
+}
+
+/**
+ * validateForm
+ */
+async function validateAndSubmit() {
+    // Check the form
+    if(!checkForm()) return showError(config.modal.error, 'Er is een verplicht veld niet (goed) ingevuld.');
+
+    // Try to submit the info to the API
+    await sendMessage(body)
+        .then((data) => {
+            if(!data.ok) { showError(); return; }
+            return data.json();
+        })
+        .then((data) => {
+            config.modal.screens.entry.style.display = 'none';
+            config.modal.screens.complete.style.display = 'block';
+        })
+        .catch((error) => {
+            console.log(error);
+            return showError(config.modal.error, 'Er trad een onverwachte fout op. Probeer later opnieuw');
+        });
 }
 
 /**
@@ -87,8 +89,8 @@ function checkForm() {
         mail: config.modal.fields.mail.value.trim(),
         phone: config.modal.fields.phone.value.trim(),
         message: config.modal.fields.message.value.trim(),
-        platform: 'web'
-    };
+        platform: 'website'
+    }
 
     // Check for empty fields
     if(!body.fullName || body.fullName.length === 0) return false;
@@ -150,26 +152,23 @@ function showError(input, message) {
  * Send the message information to the API
  * @returns {boolean} true/false
  */
-function sendMessage() {
+async function sendMessage() {
 
-    // Setup the XMLHttpRequest
-    const xhttp = new XMLHttpRequest();
-
-    // Listen to the onReadyState changes
-    xhttp.onreadystatechange = function() {
-        // Check if the page is loaded
-        if(this.readyState === 4) {
-            // Page is loaded, check if the status is 200. If not 200, return false
-            if(this.status !== 200) return false;
-        }
-    }
-
-    // Open the request
-    xhttp.open('POST', config.api.pointers.addMessage);
-    xhttp.setRequestHeader('Content-Type', 'application/json');
-    xhttp.setRequestHeader('Authorization', 'Basic ' + config.api.tokens.main);
-    xhttp.send(body);
-
-    // default return
-    return false;
+    // Fetch the information
+    const response = await fetch(config.api.pointers.addMessage, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic ' + config.api.tokens.main
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify(body)
+    });
+        
+    // Return the response
+    return response;
 }
