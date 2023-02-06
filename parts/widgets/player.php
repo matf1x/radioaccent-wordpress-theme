@@ -12,7 +12,7 @@
             <h4 data-player-elements="title"></h4>
         </div>
     </div>
-    <div class="currentSong-actions">
+    <div class="currentSong__actions">
         <a href="/gedraaid" class="btn">
             Playlist <i class="fa-solid fa-bars-staggered"></i>
         </a>

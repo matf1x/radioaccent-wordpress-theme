@@ -5,8 +5,20 @@ import { config } from './config.js';
  * Setup the layout handlers
  */
 export function layoutInit() {
+    listenForMenuButton();
     listenForScrolling();
     listenForSearch();
+    listenForShare();
+}
+
+/**
+ * Listen for a menu action
+ */
+function listenForMenuButton() {
+    config.layout.buttons.menu.addEventListener('click', function() {
+        config.site.menuOpen = (!config.site.menuOpen) ? true : false;
+        config.layout.navigation.container.classList.toggle('navigation--open');
+    });
 }
 
 /**
@@ -30,6 +42,25 @@ function listenForSearch() {
     config.search.buttons.search.addEventListener('click', function() {
         // Toggle the search bar classlist
         config.search.elements.main.classList.toggle('searchBar--open');
-    })
+    });
 
+}
+
+/**
+ * Listen for the share copy URL button
+ */
+function listenForShare() {
+    // Add an event listener to the open buttons
+    config.site.share.forEach((item) => {
+        
+        // Get info from the item
+        const url = document.querySelector('[data-clipboard-url]');
+        const success = document.querySelector('[data-clipboard-success]');
+        const error = document.querySelector('[data-clipboard-error]');
+
+        item.addEventListener('click', () => {
+            // Show the modal
+            navigator.clipboard.writeText(url);
+        })
+    });
 }

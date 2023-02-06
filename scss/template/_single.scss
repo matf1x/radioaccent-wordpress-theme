@@ -1,14 +1,7 @@
 @use '../abstracts' as *;
 
 .pageContent {
-    margin: 0;
-    padding: 1rem;
     background: var(--clr-neutral-100);
-
-    @include mq("large") {
-        padding: 2rem;
-        margin: 2rem auto;
-    }
 
     h4 {
         font-family: var(--ff-primary);

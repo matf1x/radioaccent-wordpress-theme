@@ -54,5 +54,81 @@ function rav2_stup() {
 		return 20;
 	}
 	add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+	// Setup Customizer
+	add_action('customize_register', 'theme_hero_text');
+
+	// Theme Hero Customizer
+	function theme_hero_text($wp_customize) {
+
+		// Maak een section
+		$wp_customize->add_section('hero_settings_section', array(
+			'title' => 'Frontpage'
+		));
+
+		// Setting toevoegen
+		$wp_customize->add_setting('hero_slogan_text_1', array(
+			'default' => 'Jouw Radio',
+		));
+
+		$wp_customize->add_control('hero_slogan_text_1', array(
+			'label'   => 'Slogan Lijn 1',
+			'section' => 'hero_settings_section',
+			'type'    => 'textarea',
+		));
+
+		// Setting toevoegen
+		$wp_customize->add_setting('hero_slogan_text_2', array(
+			'default' => 'Jouw Ritme',
+		));
+
+		$wp_customize->add_control('hero_slogan_text_2', array(
+			'label'   => 'Slogan Lijn 2',
+			'section' => 'hero_settings_section',
+			'type'    => 'textarea',
+		));
+
+		// Setting toevoegen
+		$wp_customize->add_setting('hero_checkbox_button', array(
+			'default' => false,
+		));
+
+		$wp_customize->add_control('hero_checkbox_button', array(
+			'label'   => 'Toon knop',
+			'section' => 'hero_settings_section',
+			'type'    => 'checkbox',
+		));
+
+		// Setting toevoegen
+		$wp_customize->add_setting('hero_text_button', array(
+			'default' => '',
+		));
+
+		$wp_customize->add_control('hero_text_button', array(
+			'label'   => 'Tekst knop',
+			'section' => 'hero_settings_section',
+			'type'    => 'textarea',
+		));
+
+		// Setting toevoegen
+		$wp_customize->add_setting('hero_url_button', array(
+			'default' => '',
+		));
+
+		$wp_customize->add_control('hero_url_button', array(
+			'label'   => 'URL knop',
+			'section' => 'hero_settings_section',
+			'type'    => 'textarea',
+		));
+
+		// Achtergrond aanpassingen
+		$wp_customize->add_setting('hero_background_image');
+		$wp_customize->add_control(new WP_Customize_Upload_Control($wp_customize,'background_image',array(
+			'label'      => __('Achtergrond', 'radioaccent'),
+			'section'    => 'hero_settings_section',
+			'settings'   => 'hero_background_image',
+		)));
+
+	}
 }
 add_action( 'after_setup_theme', 'rav2_stup' );
