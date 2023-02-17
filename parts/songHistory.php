@@ -8,9 +8,16 @@ $DB_BASE = ""; 		                                        // The name of the data
 // Connect to the database
 $db = new PDO('mysql:host='.$DB_HOST.';dbname='.$DB_BASE.'', $DB_USER, $DB_PASS);
 
+/** Default setup */
+date_default_timezone_set('Europe/Brussels');
+
+// Create time
+$startTime = date("Y-m-d H:i:s");
+$calculatedTime = date('Y-m-d H:i:s', strtotime('+3 minutes +50 seconds', strtotime($startTime)));
+
 // Get the latest update
-$sth = $db->prepare("SELECT l.artist as artist, l.title as title, l.cover as cover, h.start as time FROM songHistory h INNER JOIN songLibrary l ON h.trackGuid = l.trackGuid WHERE h.start < NOW() ORDER BY h.start DESC LIMIT 4");
-$sth->execute();
+$sth = $db->prepare("SELECT l.artist as artist, l.title as title, l.cover as cover, h.start as time FROM songHistory h INNER JOIN songLibrary l ON h.trackGuid = l.trackGuid WHERE h.start < ? ORDER BY h.start DESC LIMIT 4");
+$sth->execute(array($calculatedTime));
 $dbSong = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 // Create a counter
