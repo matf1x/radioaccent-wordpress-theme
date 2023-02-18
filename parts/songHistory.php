@@ -24,30 +24,28 @@ $dbSong = $sth->fetchAll(PDO::FETCH_ASSOC);
 $i = 1;
 
 ?>
-<section class="lastSongs">
+<section class="songHistory">
 
-    <div class="container">
+    <div class="container songHistory--list">
+        <h2>Laatst gespeeld op Accent</h2>
 
-        <div class="lastSongs--container">
-            <h2 class='sectionTitle'>Laatst gespeeld op Radio Accent</h2>
-            <?php
-            foreach($dbSong as $item) {
-            ?>
-            <div class="songItem">
-                <img class="songItem--image" alt='cover of <?php echo $item['artist']; ?> with <?php echo $item['title']; ?>' src="data:image/png;charset=utf-8;base64,<?= $item['cover'] ?>">
-                <div class="songItem__info">
-                    <h4><?php echo $item['artist']; ?></h4>
-                    <h5><?php echo $item['title']; ?></h5>
-                </div>
+        <?php
+        foreach($dbSong as $item) {
+        ?>
+        <div class="songItem">
+            <img class="songItem--image" alt='cover of <?php echo $item['artist']; ?> with <?php echo $item['title']; ?>' src="data:image/png;charset=utf-8;base64,<?= $item['cover'] ?>">
+            <div class="songItem__info">
+                <h4><?php echo $item['artist']; ?></h4>
+                <h5><?php echo $item['title']; ?></h5>
             </div>
-            <?php
-            }
-            ?>
         </div>
+        <?php
+        }
+        ?>
 
         <div data-type="btn-more" data-color="default">
             <a href="/gedraaid">Bekijk meer platen <i class="fas fa-arrow-right"></i></a>
         </div>
+    </div>
 
-     </div>
 </section>
