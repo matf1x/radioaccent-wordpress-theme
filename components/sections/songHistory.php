@@ -1,15 +1,6 @@
 <?php
-// Setup MySQL connection
-$DB_HOST = "localhost"; 			                        // Host (mostly localhost)
-$DB_USER = ""; 		                                        // The username of the database
-$DB_PASS = ""; 		                                        // The password of the database
-$DB_BASE = ""; 		                                        // The name of the database
-
-// Connect to the database
-$db = new PDO('mysql:host='.$DB_HOST.';dbname='.$DB_BASE.'', $DB_USER, $DB_PASS);
-
-/** Default setup */
-date_default_timezone_set('Europe/Brussels');
+// Require the config file
+include(__DIR__ . '/../config.php');
 
 // Create time
 $startTime = date("Y-m-d H:i:s");
@@ -20,8 +11,8 @@ $sth = $db->prepare("SELECT l.artist as artist, l.title as title, l.cover as cov
 $sth->execute(array($calculatedTime));
 $dbSong = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-// Create a counter
-$i = 1;
+// Setup Date Formatter
+$fmt = datefmt_create('nl_BE', IntlDateFormatter::FULL, IntlDateFormatter::FULL, 'Europe/Brussels', IntlDateFormatter::GREGORIAN, 'HH:mm');
 
 ?>
 <section class="songHistory">
@@ -33,8 +24,9 @@ $i = 1;
         foreach($dbSong as $item) {
         ?>
         <div class="songItem">
+            <div class="songItem--time"><?= $fmt->format(datetime::createfromformat('Y-m-d H:i:s', $item['time'])) ?></div>
             <img class="songItem--image" alt='cover of <?php echo $item['artist']; ?> with <?php echo $item['title']; ?>' src="data:image/png;charset=utf-8;base64,<?= $item['cover'] ?>">
-            <div class="songItem__info">
+            <div class="songItem--info">
                 <h4><?php echo $item['artist']; ?></h4>
                 <h5><?php echo $item['title']; ?></h5>
             </div>

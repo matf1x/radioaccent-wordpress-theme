@@ -19,10 +19,8 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 
     <section class="container pageContent withPadding">
         <?php the_content(); ?>
-        <?php get_template_part( 'parts/share', 'top' ); ?>
     </section>
 
 <?php endwhile; ?>
 <?php endif; ?>
-<?php get_template_part( 'parts/songHistory', 'top' ); ?>
 <?php get_footer(); ?>

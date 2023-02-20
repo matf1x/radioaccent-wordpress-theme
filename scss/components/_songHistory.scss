@@ -31,11 +31,11 @@
     }
 
     .songItem {
+        position: relative;
         display: grid !important;
         grid-template-areas: 'stack';
         place-items: end;
         @include accentBorder();
-        overflow: hidden;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px;
         transition: box-shadow 500ms;
 
@@ -54,7 +54,22 @@
             z-index: 1;
         }
 
-        &__info {
+        &--time {
+            position: absolute;
+            font-size: var(--fs-100);
+            font-weight: 700;
+            font-family: var(--ff-primary);
+            color: var(--clr-neutral-100);
+            top: -10px;
+            left: -10px;
+            z-index: 2;
+            background: var(--clr-primary-400);
+            padding: .25rem .5rem;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px;
+            @include accentBorder();
+        }
+
+        &--info {
             width: 100%;
             background: rgb(0,0,0);
             background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);

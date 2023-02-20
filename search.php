@@ -56,5 +56,4 @@ get_header();
 
     </section>
 
-<?php get_template_part( 'parts/songHistory', 'top' ); ?>
 <?php get_footer(); ?>

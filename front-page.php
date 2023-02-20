@@ -28,7 +28,7 @@ get_header(); ?>
             ?>
 
         </div>
-        <?php get_template_part( 'parts/widgets/player', 'top' ); ?>
+        <?php get_template_part( 'components/widgets/player', 'top' ); ?>
 
     </div>
 
@@ -78,5 +78,5 @@ get_header(); ?>
 
 </section>
 
-<?php get_template_part( 'parts/songHistory', 'top' ); ?>
+<?php //get_template_part( 'sections/top15', 'top' ); ?>
 <?php get_footer(); ?>

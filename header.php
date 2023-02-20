@@ -53,7 +53,7 @@
                     <a href="/"><img src="<?php echo get_stylesheet_directory_uri().'/assets/img/logo.png'; ?>" alt="logo-radio-accent" title="Radio Accent"></a>
                 </div>
                 <div class="navContainer--navigation" id="navigationContainer">
-                    <?php get_template_part( 'parts/navigation', 'top' ); ?>
+                    <?php get_template_part( 'components/layout/navigation', 'top' ); ?>
                 </div>
                 <div class="navContainer--search">
                     <i class="fas fa-search" data-action="open-search"></i>
@@ -71,6 +71,6 @@
         </div>
 
         <!-- Send a message modal -->
-        <?php get_template_part( 'parts/widgets/onairbar', 'top' ); ?>
+        <?php get_template_part( 'components/layout/onairbar', 'top' ); ?>
 
     </header>

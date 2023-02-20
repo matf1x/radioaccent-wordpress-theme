@@ -1,12 +1,6 @@
 <?php
-// Setup MySQL connection
-$DB_HOST = "localhost"; 			        // Host (mostly localhost)
-$DB_USER = ""; 		                        // The username of the database
-$DB_PASS = ""; 		                        // The password of the database
-$DB_BASE = ""; 		                        // The name of the database
-
-// Connect to the database
-//$db = new PDO('mysql:host='.$DB_HOST.';dbname='.$DB_BASE.'', $DB_USER, $DB_PASS);
+// Require the config file
+include('../config.php');
 ?>
 <section class="shows">
     <div class="container">

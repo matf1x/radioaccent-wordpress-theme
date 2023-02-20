@@ -1,3 +1,5 @@
+<?php get_template_part( 'components/sections/songHistory', 'top' ); ?>
+
 <footer>
     <section class="moreAbout">
         <div class="container">
@@ -38,7 +40,7 @@
 </footer>
 
 <!-- Send a message modal -->
-<?php get_template_part( 'parts/widgets/message.modal', 'top' ); ?>
+<?php get_template_part( 'components/modals/message.modal', 'top' ); ?>
 
 <!-- Javascriptin -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
