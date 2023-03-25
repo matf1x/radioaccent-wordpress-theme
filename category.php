@@ -12,7 +12,7 @@ $category     = $current_page->slug;
 
     <section class='pageHeader'>
         <div class="pageHeader__content">
-            <img src="https://img.nieuwsblad.be/Nc8rcLz4XHeLqzf5LXrmqg6Uhq0=/960x640/smart/https%3A%2F%2Fstatic.nieuwsblad.be%2FAssets%2FImages_Upload%2F2018%2F07%2F10%2FRadio_Accent.jpg" alt="Radio Accent">
+            <img src="<?php echo get_stylesheet_directory_uri().'/assets/img/general_bg.jpg'; ?>" alt="Radio Accent">
             <div class="pageTitle">
                 <div class="container">
                     <h2><?php single_cat_title(); ?></h2>

@@ -14,13 +14,13 @@
     </div>
     <div class="currentSong__actions">
         <a href="/gedraaid" class="btn">
-            Playlist <i class="fa-solid fa-bars-staggered"></i>
+            <span>Playlist</span> <i class="fa-solid fa-bars-staggered"></i>
         </a>
         <a href="#" class="btn" data-action="send-message">
-            Stuur bericht <i class="fa-solid fa-comment-dots"></i>
+            <span>Stuur bericht</span> <i class="fa-solid fa-comment-dots"></i>
         </a>
         <button class="listenLive" data-action="open-player">
-            Luister live <i class="fas fa-play"></i>
+            <span>Luister live</span> <i class="fas fa-play"></i>
         </button>
     </div>
 </div>

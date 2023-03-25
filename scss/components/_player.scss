@@ -145,12 +145,13 @@
         gap: 1rem;
         width: 100%;
         background-color: var(--clr-neutral-100);
-        font-size: var(--fs-200);
+        font-size: var(--fs-100);
         font-weight: 600;
         border-radius: 0 0 10px 10px;
 
         @include mq('medium') {
             gap: 0;
+            font-size: var(--fs-200);
         }
 
         a, button {
@@ -167,6 +168,7 @@
                 color: var(--clr-primary-400);
                 margin-left: .5rem;
                 transition: transform 350ms ease-in;
+                font-size: var(--fs-200);
             }
 
             &:hover {
@@ -188,76 +190,4 @@
             }
         }
     }
-
-    /*&-actions {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: flex-end;
-        gap: .25rem;
-        background-color: var(--clr-neutral-100);
-        border-radius: 0 0 10px 10px;
-        width: 100%;
-        font-size: var(--fs-200);
-        font-weight: 600;
-        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
-
-        .btn, .listenLive {
-            padding: 0 1rem;
-            display: block;
-            border: 0;
-            background-color: var(--clr-neutral-100);
-            text-decoration: none;
-            cursor: pointer;
-            height: 30px;
-            overflow: hidden;
-            line-height: 30px;
-            transition: background-color .3s ease-in-out;
-            -webkit-transition: background-color .3s ease-in-out;
-            color: var(--clr-primary-400);
-        }
-
-        .btn {
-            background: -webkit-linear-gradient(#0873b9, #065589);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
-            &:hover {        
-                background: -webkit-linear-gradient(#065589, #032d49);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-
-                i {
-                    background: -webkit-linear-gradient(#065589, #032d49);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                }
-            }
-        }
-
-        i {
-            display: none;
-            margin-left: .5rem;
-            transition: background .3s ease-in-out;
-            -webkit-transition: background .3s ease-in-out;
-            background: -webkit-linear-gradient(#0873b9, #065589);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
-            @include mq('medium') {
-                display: inline-block;
-            }
-        }
-
-        .listenLive {
-            background-color: var(--clr-secondary-400);
-            cursor: pointer;
-            border-bottom-right-radius: 10px;
-            color: var(--clr-neutral-900);
-
-            i {
-                color: var(--clr-primary-400);
-            }
-        }
-    }*/
 }
