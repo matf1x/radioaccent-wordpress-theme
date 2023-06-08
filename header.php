@@ -4,15 +4,8 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta property="og:site_name" content="Radio Accent" />
 	<meta property="og:locale" content="nl_BE" />
 	<meta property="fb:app_id" content="527337407652304" />
-	<meta property="og:type" content="website" />
-	<?php if ( !is_home() ): ?>
-	<meta property="og:url" content="<?= get_permalink() ?>" />
-	<?php endif; ?>
-	<?php if ( has_post_thumbnail() && !is_home() ): ?>
-	<meta property="og:image" content="<?= the_post_thumbnail_url() ?>">
     
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -21,19 +14,6 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#0873b9">
-
-    <?php endif; ?>
-
-    <!-- Title of page -->
-    <title>
-    <?php if(is_front_page()) {
-        echo get_bloginfo( 'name' ) ;
-        echo ' - ';;
-        echo get_bloginfo( 'description' ) ;
-    }else{
-        wp_title( '|', true, 'right' ); 
-     }
-     ?></title>
 
     <!-- include the stylesheet -->
     <link rel="stylesheet" type="text/css" href="//use.fontawesome.com/releases/v6.2.0/css/all.css">

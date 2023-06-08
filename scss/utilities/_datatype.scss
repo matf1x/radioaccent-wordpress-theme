@@ -136,7 +136,8 @@
 
 /** News Article **/
 [data-type="news-article"] {
-    padding: 3rem 0;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 
     p, h3, h5 {
         margin: 0;
@@ -255,6 +256,24 @@
         object-position: center;
         margin-bottom: 2rem;
         @include accentBorder();
+    }
+
+    figure {
+        width: 100%;
+        div {
+            max-width: 100%;
+            padding-top: 56.25%;
+            position: relative;
+            width: 100%;
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
     }
 }
 

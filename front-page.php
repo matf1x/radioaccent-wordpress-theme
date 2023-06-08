@@ -50,7 +50,6 @@ get_header(); ?>
     <div class="newsPosts__holder">
         <?php
         $the_query = new WP_Query( array( 
-            'category_name' => 'Regio', 
             'posts_per_page' => 12 
         ) ); 
         if ( $the_query->have_posts() ) :
